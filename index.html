@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+    <title>Elderly Health Care</title>
+    <style>
+      body {
+        padding-top: 50px;
+        background-image: url("./istockphoto-1029340354-612x612.jpg"); /* Replace with your background image path */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.1
+        ); /* Semi-transparent black overlay */
+        z-index: -1;
+      }
+      .navbar {
+        background-color: #000000; /* Black navbar */
+      }
+      .navbar-dark .navbar-brand,
+      .navbar-dark .navbar-nav .nav-link {
+        color: #fff; /* White text */
+      }
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: #e6e6e6; /* Lighter text on hover */
+      }
+      .navbar-dark .navbar-toggler {
+        border-color: #fff; /* White border color */
+      }
+      .navbar-dark .navbar-toggler-icon {
+        background-color: #fff; /* White navbar toggler icon */
+      }
+      .jumbotron {
+        text-align: center;
+      }
+      .btn-red {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Elderly Health Care</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./AboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./ContactUs.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-primary me-2"
+                href="./Registration.html"
+                >Register</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link btn btn-danger me-2" href="./Login.html"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                class="btn btn-primary"
+                ><img
+                  src="./png-transparent-whatsapp-email-web-design-message-icon-whatsapp-whatsapp-logo-text-logo-grass.png"
+                  alt="WhatsApp"
+                  width="20"
+                  class="me-2"
+                />WhatsApp</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Elderly Health Care</h1>
+      <p class="lead">Providing quality healthcare for seniors</p>
+    </div>
+
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  placeholder="Your message"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="registerModal"
+      tabindex="-1"
+      aria-labelledby="registerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Register Now</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="reg-name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="reg-name"
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="reg-email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="reg-email"
+                  placeholder="Your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="reg-password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="reg-password"
+                  placeholder="Your password"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

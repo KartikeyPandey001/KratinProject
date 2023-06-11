@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <title>Elderly Health Tracker - Sunita Sharma (Age 65)</title>
+    <style>
+     
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f2f2f2;
+        /* background-image: url("./imageedit_2_4728113890.png");  */
+      }
+     
+      h1 {
+        text-align: center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        color: #003399;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .card {
+        width: 300px;
+        height: 300px;
+        padding: 50px;
+        border-radius: 40%;
+        background-color: #e6f2ff;
+      }
+
+      .card h3 {
+        color: #003399;
+        
+      }
+
+      .card p {
+        color: #666666;
+      }
+
+      .card button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .card input[type="text"] {
+        width: 100%;
+        padding: 5px;
+      }
+
+      .card input[type="number"] {
+        width: 100%;
+        padding: 5px;
+      }
+
+      .logout-button {
+        text-align: right;
+        
+      }
+
+      .emergency-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .profile-image {
+        border-radius: 200%;
+        width: 200px;
+      }
+      .centered{
+        text-align: center;
+      }
+      .doctors-button{
+        text-align: right;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div><h1>Elderly Health Tracker</h1></div>
+    <div class="logout-button">
+      <a href="index.html" class="btn btn-danger">Log Out</a>
+    </div>
+    <div class="doctors-button">
+      <a
+        href="https://www.google.com/search?q=doctors+near+me"
+        class="btn btn-primary"
+        target="_blank"
+        >Find Doctors Near You</a
+      >
+    </div>
+   <div class="container">
+    <table>
+      <tr>
+        <td colspan="3" class="centered">
+            <img
+            src="./istockphoto-517234226-612x612.jpg"
+            alt="Sunita Sharma"
+            height="200px"
+            class="profile-image"
+          />
+        </td>
+        
+      </tr>
+      <tr>
+      
+        <td colspan="3" class="centered"> <h3><b>Sunita Sharma</h3></td>
+     
+      </tr>
+      <tr>
+        <td colspan="3" class="centered">  <h4><b>Age 65</h4></td>
+       
+      </tr>
+      <tr>
+        <td colspan="3" style="color: red;" class="centered"><h4>Fill below given entries to download your daily health report</td>
+      </tr>
+      <tr>
+        <td><div class="container">
+            <div class="card" style="text-align: center;">
+              <div class="hello">
+              <h3>Step Counter</h3>
+              <p>Number of Steps: <span id="steps">0</span></p>
+              <button onclick="incrementSteps()">Increment Steps</button>
+            </div>
+            </div></td>
+        <td><div class="card" >
+          <div class="hello">
+            <h3>Water Intake Tracker</h3>
+            <p>Daily Water Intake: <span id="water">0</span> cups</p>
+            <button onclick="incrementWater()">Increment Water</button>
+          </div>
+          </div></td>
+        <td><div class="card">
+          <div class="hello">
+            <h3>Sleep Tracker</h3>
+            <p>Hours of Sleep: <span id="sleep">0</span></p>
+            <input
+              type="number"
+              id="sleepInput"
+              min="0"
+              max="24"
+              placeholder="Enter hours of sleep"
+            />
+            <button onclick="updateSleep()">Update Sleep</button>
+          </div>
+          </div></td>
+      </tr>
+      <tr>
+        <td><div class="card">
+          <div class="hello">
+            <h3>Medication Reminder</h3>
+            <p>
+              Take Medication:
+              <input
+                type="text"
+                id="medicationInput"
+                placeholder="Enter medication"
+              />
+            </p>
+            <button onclick="setReminder()">Set Reminder</button>
+          </div>
+          </div>
+    </td>
+        <td> <div class="card">
+          <div class="hello">
+            <h3>Heart Rate Tracker</h3>
+            <p>Heart Rate: <span id="heartRate">N/A</span></p>
+            <button onclick="recordHeartRate()">Record Heart Rate</button>
+          </div>
+          </div>
+    </td>
+        <td>  <div class="card">
+          <div class="hello">
+            <h3>Blood Pressure Tracker</h3>
+            <p>Blood Pressure: <span id="bloodPressure">N/A</span></p>
+            <button onclick="recordBloodPressure()">Record Blood Pressure</button>
+          </div>
+          </div></td>
+      </tr>
+      <tr>
+        <td> <div class="card">
+          <div class="hello">
+            <h3>Weight Management</h3>
+            <p>Weight: <span id="weight">0</span> kg</p>
+            <button onclick="updateWeight()">Update Weight</button>
+          </div>
+          </div></td>
+        <td><div class="card">
+          <div class="hello">
+            <h3>Nutritional Tracking</h3>
+            <p>Calories Consumed: <span id="calories">0</span> kcal</p>
+            <button onclick="addCalories()">Add Calories</button>
+          </div>
+          </div></td>
+        <td><div class="card">
+          <div class="hello">
+            <h3>Exercise and Fitness Planning</h3>
+            <p>
+              Workout Plan:
+              <input
+                type="text"
+                id="workoutInput"
+                placeholder="Enter workout plan"
+              />
+            </p>
+            <button onclick="setWorkoutPlan()">Set Workout Plan</button>
+          </div>
+          </div></td>
+      </tr>
+      <tr>
+        <td>  <div class="card">
+          <div class="hello">
+            <h3>Health Journal</h3>
+            <textarea
+              id="journalEntry"
+              rows="5"
+              placeholder="Write your journal entry"
+            ></textarea>
+            <button onclick="addJournalEntry()">Add Journal Entry</button>
+          </div>
+          </div></td>
+        <td><div class="card">
+          <div class="hello">
+            <h3>Emergency Contacts</h3>
+            <p>
+              Emergency Contact:
+              <input
+                type="text"
+                id="emergencyContact"
+                placeholder="Enter emergency contact"
+              />
+            </p>
+            <button onclick="saveEmergencyContact()">Save Emergency Contact</button>
+          </div>
+          </div></td>
+        <td> <div class="card">
+          <div class="hello">
+            <h3>Health Tips and Resources</h3>
+            <p>Explore health tips and resources.</p>
+            
+              <a href="https://main.mohfw.gov.in/major-programmes/Non-Communicable-Diseases/Non-Communicable-Diseases-1" class="btn btn-warning" target="_blank"
+                >Explore</a>
+          </div></td>
+        </div>
+      </tr>
+      <tr>
+        <td colspan="3" class="centered"> </div>
+          <button class="btn btn-primary"  target="_blank" onclick="redirectToEntriesPage()">Download Health Report</button>
+              <a href="emergency.html" target="_blank" class="emergency-button">&#9742;</a>
+            </div></td>
+      </tr>
+      </table>
+     
+  
+    <script>
+
+  
+      var entries = [];
+
+      function incrementSteps() {
+      
+        var steps = parseInt(document.getElementById("steps").textContent);
+        document.getElementById("steps").textContent = steps + 1;
+      }
+
+      function incrementWater() {
+       
+         var water = parseInt(document.getElementById("water").textContent);
+        document.getElementById("water").textContent = water + 1;
+      }
+
+      function updateSleep() {
+      
+        var sleepInput = document.getElementById("sleepInput");
+        var sleep = parseInt(sleepInput.value);
+        if (sleep >= 0 && sleep <= 24) {
+          document.getElementById("sleep").textContent = sleep;
+        }
+        sleepInput.value = "";
+       
+        var entry = {
+          category: "Sleep Tracker",
+          value: sleep
+        };
+
+  
+        entries.push(entry);
+
+       
+        sleepInput.value = "";
+      }
+
+      function setReminder() {
+  
+        var medicationInput = document.getElementById("medicationInput").value;
+        alert("Reminder set for taking " + medicationInput);
+        document.getElementById("medicationInput").value = "";
+      
+        var entry = {
+          category: "Medication Reminder",
+          value: medicationInput
+        };
+
+       
+        entries.push(entry);
+
+        medicationInput.value = "";
+      }
+
+      function recordHeartRate() {
+   
+        document.getElementById("heartRate").textContent = heartRate;
+     
+        var heartRate = prompt("Enter the Heart rate:");
+        if (heartRate) {
+          document.getElementById("heartRate").textContent = heartRate;
+        }
+        
+        var entry = {
+          category: "Heart Rate Tracker",
+          value: heartRate
+        };
+
+        entries.push(entry);
+      }
+
+      function recordBloodPressure() {
+       
+        var bloodPressure = prompt("Enter the blood pressure:");
+        if (bloodPressure) {
+          document.getElementById("bloodPressure").textContent = bloodPressure;
+        }
+       
+        var entry = {
+          category: "Blood Pressure Tracker",
+          value: bloodPressure
+        };
+
+      
+        entries.push(entry);
+      }
+
+      function updateWeight() {
+     
+        var weight = parseInt(document.getElementById("weight").textContent);
+        var newWeight = prompt("Enter your weight (kg):");
+        if (newWeight) {
+          document.getElementById("weight").textContent = newWeight;
+        }
+
+    
+        var entry = {
+          category: "Weight Management",
+          value: newWeight
+        };
+
+    
+        entries.push(entry);
+      }
+
+      function addCalories() {
+      
+        var calories = parseInt(
+          document.getElementById("calories").textContent
+        );
+        var newCalories = parseInt(prompt("Enter calories consumed (kcal):"));
+        if (newCalories) {
+          document.getElementById("calories").textContent =
+            calories + newCalories;
+        }
+
+        var entry = {
+          category: "Nutritional Tracking",
+          value: newCalories
+        };
+
+      
+        entries.push(entry);
+      }
+
+      function setWorkoutPlan() {
+    
+        var workoutInput = document.getElementById("workoutInput").value;
+        alert("Workout plan set: " + workoutInput);
+        document.getElementById("workoutInput").value = "";
+        
+        var entry = {
+          category: "Exercise and Fitness Planning",
+          value: workoutInput
+        };
+
+  
+        entries.push(entry);
+
+    
+        workoutInput.value = "";
+      }
+
+      function addJournalEntry() {
+    
+        var journalEntry = document.getElementById("journalEntry").value;
+        alert("Journal entry added:\n" + journalEntry);
+        document.getElementById("journalEntry").value = "";
+
+        var entry = {
+          category: "Health Journal",
+          value: journalEntry
+        };
+
+   
+        entries.push(entry);
+
+     
+        journalEntry.value = "";
+      }
+
+      function saveEmergencyContact() {
+       
+        var emergencyContact =
+          document.getElementById("emergencyContact").value;
+        alert("Emergency contact saved:\n" + emergencyContact);
+        document.getElementById("emergencyContact").value = "";
+       
+        var entry = {
+          category: "Emergency Contacts",
+          value: emergencyContact
+        };
+
+        entries.push(entry);
+
+        
+        emergencyContact.value = "";
+      }
+
+      function exploreHealthTips() {
+   
+        alert("Explore health tips and resources.");
+       
+        var entry = {
+          category: "Health Tips",
+          value: healthTip
+        };
+
+       
+        entries.push(entry);
+
+     
+        healthTip.value = "";
+      }
+
+      function redirectToEntriesPage() {
+       
+        localStorage.setItem("entries", JSON.stringify(entries));
+
+       
+        window.location.href = "entries.html";
+     
+      }
+     
+
+
+    </script>
+  </body>
+</html>

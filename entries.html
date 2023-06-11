@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <title>Elderly Health Tracker - Entries</title>
+    <style>
+      body {
+        padding-top: 50px;
+        background-image: url("./imageedit_2_4728113890.png"); /* Replace with your background image path */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #hi {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Health Tracker Entries</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          var entries = JSON.parse(localStorage.getItem("entries"));
+
+          entries.forEach(function (entry) {
+            var row = document.createElement("tr");
+            var categoryCell = document.createElement("td");
+            var valueCell = document.createElement("td");
+
+            categoryCell.textContent = entry.category;
+            valueCell.textContent = entry.value;
+
+            row.appendChild(categoryCell);
+            row.appendChild(valueCell);
+
+            document.querySelector("tbody").appendChild(row);
+          });
+        </script>
+      </tbody>
+    </table>
+    <table id="hi">
+      <tr>
+        <td>
+          <button class="btn btn-success" onclick="downloadEntries()">
+            Download Entries
+          </button>
+        </td>
+        <td>
+          <div>
+            <a
+              href="./healthReport.html"
+              class="btn btn-primary"
+              target="_blank"
+              >Download Health Report</a
+            >
+          </div>
+        </td>
+        <td>
+          <div>
+            <a href="./index.html" class="btn btn-danger" target="_blank"
+              >Log Out</a
+            >
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+      function printEntries() {
+        window.print();
+      }
+
+      function downloadEntries() {
+        var entriesText = "";
+
+        entries.forEach(function (entry) {
+          entriesText += entry.category + ": " + entry.value + "\n";
+        });
+
+        var tempLink = document.createElement("a");
+        tempLink.setAttribute(
+          "href",
+          "data:text/plain;charset=utf-8," + encodeURIComponent(entriesText)
+        );
+        tempLink.setAttribute("download", "health_entries.txt");
+
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+      }
+    </script>
+  </body>
+</html>
