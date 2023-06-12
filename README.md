@@ -13,6 +13,9 @@ Elderly Health Care is a plateform which provide services to ensure a healthy an
 11.Emergency Contacts
 
 after filling these entries she can download  daily health entries as well daily health report.
+here is the direct link of the websolution I have created.
+click for live website review.
+https://kartikeypandey001.github.io/KratinProject/
 below are screenshots of the website solution.
 ![1Home](https://github.com/KartikeyPandey001/KratinProject/assets/136012474/7df3c7bd-fa21-4b26-a3c8-88552d653ce8)
 ![2AboutUs](https://github.com/KartikeyPandey001/KratinProject/assets/136012474/92a410f9-15f0-4735-ae8d-7c6cb175c2a1)
