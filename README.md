@@ -1,4 +1,5 @@
-# KratinProject
+# KratinProject 
+https://kartikeypandey001.github.io/KratinProject/
 Elderly Health Care is a plateform which provide services to ensure a healthy and better life for elderly people. In this project we are creating a usecase for a username Sunita Sharma Age 65 years. On login she can generate and download her daily health report by filling entries like.
 1.Step Counter
 2.Water Intake Tracker
